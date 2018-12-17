@@ -43,8 +43,28 @@ export function product(arr) {
   return result;
 }
 
+/**
+ * Returns the sum of all entries in a numeric data array.
+ * @param {Array} arr the data array
+ * @returns {Number} the sum of all the data in the array
+ */
+export function sum(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return undefined;
+  let result = 0;
+  let compensation = 0;
+  for (let i = 0; i < arr.length; i += 1) {
+    if (!Number.isFinite(arr[i])) return undefined;
+    const compensatedInput = arr[i] - compensation;
+    const newResult = result + compensatedInput;
+    compensation = (newResult - result) - compensatedInput;
+    result = newResult;
+  }
+  return result;
+}
+
 export default {
   min,
   max,
   product,
+  sum,
 };

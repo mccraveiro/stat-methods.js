@@ -3,6 +3,7 @@ import {
   min,
   max,
   product,
+  sum,
 } from '../src/descriptive';
 
 describe('Descriptive Statistics', () => {
@@ -44,4 +45,15 @@ describe('Descriptive Statistics', () => {
     testUndefinedWithNullable(product);
   });
 
+  test('Summation', () => {
+    expect(sum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7])).toBe(15.3);
+    expect(sum([NaN, 2, 3, 4])).toBeUndefined();
+    expect(sum([])).toBeUndefined();
+    expect(sum(['a', 2, 3, 4])).toBeUndefined();
+    expect(sum(["hello", 3, 4, 5])).toBeUndefined();
+    expect(sum(3)).toBeUndefined();
+    expect(sum([3])).toBe(3);
+    expect(sum([5, 8, 1.2, null])).toBeUndefined();
+    testUndefinedWithNullable(sum);
+  });
 });

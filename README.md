@@ -36,7 +36,8 @@ npm i stat-methods
     -   [min](#min)
     -   [max](#max)
     -   [product](#product)
-  
+    -   [sum](#sum)
+
 4.  [Measures of similarity](#Measures-of-similarity)
     -   [covariance](#covariance)
     -   [correlation](#correlation)
@@ -339,6 +340,16 @@ Return the product of all entries in a numeric data array.
 
 ```js
 product([1, 2, 3, 4]); // -> 24
+```
+
+If the data array is empty or contains a non finite `Number`, the method returns `undefined`.
+
+#### sum
+
+Return the sum of all entries in a numeric data array.
+
+```js
+sum([1, 2, 3, 4]); // -> 10
 ```
 
 If the data array is empty or contains a non finite `Number`, the method returns `undefined`.
